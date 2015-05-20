@@ -1,0 +1,17 @@
+## Title: My Build
+## APIVersion: 100011
+## SavedVariables: MyBuildSavedVariables
+
+lib\numberlua.lua
+lib\LibCompress.lua
+EN.lua
+MyBuild.lua
+Char.lua
+UI2.lua
+CharacterView.lua
+EquipmentView.lua
+ChampionView.lua
+AttributeView.lua
+
+UI.lua
+bindings.xml
