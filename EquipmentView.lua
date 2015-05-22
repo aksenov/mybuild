@@ -82,7 +82,7 @@ function MyBuild.EquipmentView.UpdateItemInfo(item, itemview)
     itemview.name:SetText(item.name:gsub("%^p", ""):gsub("%^n", ""))
     itemview.name:SetColor(ESO.RGBA(ESO.QualityColor[item.quality]))
 
-    itemview.level:SetText(Char.ItemLevelText(item))
+    itemview.level:SetText(MyBuild.Char.ItemLevelText(item))
     itemview.level:SetColor(ESO.RGBA(ESO.QualityColor[item.quality]))
 
     if item.armortype ~= 0 then

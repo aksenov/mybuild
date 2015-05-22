@@ -50,7 +50,7 @@ function MyBuild:Initialize()
 function MyBuild.OnAddOnLoaded(_, addonName)
     if addonName == MyBuild.name then
         MyBuild:Initialize()
-        MyBuild.ui = UI.CreateUI()
+        MyBuild.ui = MyBuild.UI.CreateUI()
         MyBuild.ui.mainWindow:SetHidden(true)
     end
 end
@@ -59,20 +59,20 @@ end
 function MyBuild.OnUpdate (_, unitTag)
     if unitTag == "player" then
         MyBuild.Char:UpdateInfo()
-        UI.UpdateUI()
+        MyBuild.UI.UpdateUI()
     end
 end
 
 -- refresh information on player
 function MyBuild.OnRefresh (_)
     MyBuild.Char:UpdateInfo()
-    UI.UpdateUI()
+    MyBuild.UI.UpdateUI()
 end
 
 -- update info on player first time
 function MyBuild.OnPlayerActivated(_)
     MyBuild.Char:UpdateInfo()
-    UI.UpdateUI()
+    MyBuild.UI.UpdateUI()
 end
 
 -- toggle visibility of main window
