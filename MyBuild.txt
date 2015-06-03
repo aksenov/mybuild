@@ -5,9 +5,6 @@
 ## Author: Eugene Aksenov, @aksenov (EU)
 ## SavedVariables: MyBuildSavedVariables
 
-lib\numberlua.lua
-lib\LibCompress.lua
-
 EN.lua
 MyBuild.lua
 Char.lua
