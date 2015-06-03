@@ -1,9 +1,13 @@
 ## Title: My Build
+## Description: Shows full chracter build information. Type /mybuild to show or hide information window. Also you can bind hotkeys to toggle window.
+## Version: 1.0.0
 ## APIVersion: 100011
+## Author: Eugene Aksenov, @aksenov (EU)
 ## SavedVariables: MyBuildSavedVariables
 
 lib\numberlua.lua
 lib\LibCompress.lua
+
 EN.lua
 MyBuild.lua
 Char.lua
@@ -12,6 +16,6 @@ CharacterView.lua
 EquipmentView.lua
 ChampionView.lua
 AttributeView.lua
-
 UI.lua
+
 bindings.xml
