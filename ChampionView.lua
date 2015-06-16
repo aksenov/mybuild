@@ -97,6 +97,9 @@ function MyBuild.ChampionView:SetSkillColor(char, disc, skill)
     if char.championPoints[disc].skills[skill].points == 0 then
         self.disciplines[disc].skills[skill].name:SetColor(0.502, 0.502, 0.502, 0.3) --gray opacity
         self.disciplines[disc].skills[skill].points:SetColor(0.502, 0.502, 0.502, 0.3)
+    else
+        self.disciplines[disc].skills[skill].name:SetColor(1, 1, 1, 1) -- white
+        self.disciplines[disc].skills[skill].points:SetColor(1, 1, 1, 1)
     end
 end
 
@@ -113,18 +116,3 @@ function MyBuild.ChampionView:UpdateCharacterInfo( char)
   end
 end
 
-
-
-
---[[
-if Char.championPoints[disc].attribute == 2 then
-  skillName:SetColor(0.255, 0.412, 0.882, 1)
-  skillPoint:SetColor(0.255, 0.412, 0.882, 1)
-elseif Char.championPoints[disc].attribute == 1 then
-  skillName:SetColor(1.000, 0.000, 0.000, 1)
-  skillPoint:SetColor(1.000, 0.000, 0.000, 1)
-elseif Char.championPoints[disc].attribute == 3 then
-  skillName:SetColor(0.133, 0.545, 0.133, 1)
-  skillPoint:SetColor(0.133, 0.545, 0.133, 1)
-end
-]]
