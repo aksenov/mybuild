@@ -34,6 +34,10 @@ function MyBuild.ChampionView:Create(parent)
   --TODO MyBuild.LANG.UI_ChampionTitle
   self.title = UI2.Label(MyBuild.LANG.UI_ChampionTitle, "ZoFontWinH2", self.box)
   UI2.Offset(self.title, 10, 0)
+  
+  self.totalPoints = UI2.Label("(0)", "ZoFontWinH3", self.box)
+  self.totalPoints:SetColor(0.502, 0.502, 0.502, 0.3)
+  UI2.Offset(self.totalPoints, 10, 200)
 
   self.disciplines = {}
 
@@ -102,6 +106,7 @@ end
 
 -- TODO
 function MyBuild.ChampionView:UpdateCharacterInfo( char)
+  self.totalPoints:SetText(char.totalChampionPoints)
   for d = 1, 9 do
     self.disciplines[d].title:SetText(char.championPoints[d].name)
     MyBuild.ChampionView:SetTitleColor(char, d)
