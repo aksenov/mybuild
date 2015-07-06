@@ -48,6 +48,7 @@ end
 
 -- Get champion points information
 function MyBuild.Char:ChampionPoints()
+  self.totalChampionPoints = GetPlayerChampionPointsEarned()
   self.championPoints = {}
   for disc=1, GetNumChampionDisciplines() do
       self.championPoints[disc] = {}
