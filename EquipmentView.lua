@@ -119,4 +119,26 @@ function MyBuild.EquipmentView:UpdateCharacterInfo(char)
     self.UpdateItemInfo(char.offHand, self.off1)
     self.UpdateItemInfo(char.backupMain, self.main2)
     self.UpdateItemInfo(char.backupOff, self.off2)
+
+    self.title:SetText(MyBuild.LANG.UI_Equipment_Title.."   "..self.EquipmentSummary(char))
+    --d(self.EquipmentSummary(char))
+end
+
+function MyBuild.EquipmentView.EquipmentSummary(char)
+  local h = 0
+  local m = 0
+  local l = 0
+  items = {char.head, char.shoulders, char.chest, char.hand, char.waist, char.legs, char.feet}
+  for ii, iitem in ipairs(items) do
+    if iitem.armortype == ARMORTYPE_HEAVY then
+      h = h + 1
+    end
+    if iitem.armortype == ARMORTYPE_MEDIUM then
+      m = m + 1
+    end
+    if iitem.armortype == ARMORTYPE_LIGHT then
+      l = l + 1
+    end
+  end
+  return string.format("(|cB22222 %d|r, |c008000 %d|r, |c4169E1 %d|r )", h,m,l)
 end
