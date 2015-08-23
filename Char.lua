@@ -36,7 +36,7 @@ function MyBuild.Char:UpdateInfo()
   self.level = GetUnitLevel(player)
   self.veteranRank = GetUnitVeteranRank(player)
   self.isVeteran = IsUnitVeteran(player)
-
+  self.werewolf = IsWerewolf()
   MyBuild.Char:Stat()
   MyBuild.Char:Equipment()
 
@@ -78,6 +78,19 @@ function MyBuild.Char:Effects()
         end
         self.mundus = self.mundus..string.sub(self.effects[i], 6)
     end
+
+
+    --check for lycanthropy
+    if string.match(self.effects[i],  "Lycanthropy") then
+      self.werewolf = true
+    end
+
+    --d(string.sub(self.effects[i], 8, 17))
+    --check for vampirism
+    if string.match(self.effects[i], "Vampirism") then
+      self.vampire = true
+    end
+
   end
 end
 

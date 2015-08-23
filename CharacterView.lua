@@ -51,6 +51,13 @@ function MyBuild.CharacterView:UpdateCharacterInfo(char)
         level = ""..char.level
     end
 
-    self.info:SetText(string.format("%s  %s  %s", level, char.class, char.race))
+    local supernatural = ""
+    if char.werewolf then
+      supernatural = EN.Werewolf
+    elseif char.vampire then
+      supernatural = EN.Vampire
+    end
+
+    self.info:SetText(string.format("%s  %s  %s  %s", level, char.class, char.race, supernatural))
     self.info:SetColor(1, 0.98, 0.8,1)
 end

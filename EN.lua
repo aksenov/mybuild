@@ -26,6 +26,9 @@ EN.UI_Stat_Label_Weapon = "Weapon"
 EN.UI_Stat_Label_Physical = "Physical"
 EN.UI_Stat_Label_Magical = "Magical"
 
+EN.Werewolf = "Werewolf"
+EN.Vampire = "Vampire"
+
 EN.UI_Equipment_Title = "Equipment"
 EN.UI_Header_Slot = "Slot"
 EN.UI_Header_Rating = "Armor"
