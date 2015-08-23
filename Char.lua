@@ -67,11 +67,16 @@ end
 -- Get current effect information
 function MyBuild.Char:Effects()
   self.effects = {}
+  self.mundus = ""
   for i = 0, GetNumBuffs("player") do
     self.effects[i] = GetUnitBuffInfo("player", i)
     --string.sub(String,1,string.len(Start))==Start
     if string.sub(self.effects[i], 1, 5) == "Boon:" then
-        self.mundus = string.sub(self.effects[i], 6)
+        -- if twice-born star set in effect
+        if self.mundus ~= "" then
+          self.mundus = self.mundus..", "
+        end
+        self.mundus = self.mundus..string.sub(self.effects[i], 6)
     end
   end
 end
@@ -130,7 +135,7 @@ function MyBuild.Char:Stat()
   self.spellCriticalChance = GetCriticalStrikeChance(self.spellCritical, true)
 end
 
--- Get worn equipment information 
+-- Get worn equipment information
 function MyBuild.Char:Equipment()
   local item = function (type)
     local a = {}
