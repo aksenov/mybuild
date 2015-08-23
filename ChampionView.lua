@@ -34,11 +34,6 @@ function MyBuild.ChampionView:Create(parent)
   --TODO MyBuild.LANG.UI_ChampionTitle
   self.title = UI2.Label(MyBuild.LANG.UI_ChampionTitle, "ZoFontWinH2", self.box)
   UI2.Offset(self.title, 10, 0)
-  
-  self.totalPoints = UI2.Label("(0)", "ZoFontWinH3", self.box)
-  self.totalPoints:SetColor(0.502, 0.502, 0.502, 0.3)
-  UI2.Offset(self.totalPoints, 10, 200)
-
   self.disciplines = {}
 
   MyBuild.ChampionView:DisciplineBlock(2, self.box, 0, 30)
@@ -77,11 +72,11 @@ end
 function MyBuild.ChampionView:SkillBlock(disc, skill, parent , shiftX, shiftY, skillShiftX, skillShiftY)
   self.disciplines[disc].skills[skill] = {}
   local s = self.disciplines[disc].skills[skill]
-  
+
   s.name = UI2.Label("Skill title", "ZoFontGameSmall", parent)
   s.name:SetDimensions(130, 20)
   s.name:SetAnchor(TOPLEFT, parent, TOPLEFT, shiftX + skillShiftX, shiftY + skillShiftY)
-  
+
   s.points = UI2.Label("---", "ZoFontWinH5", parent)
   s.points:SetDimensions(130, 20)
   s.points:SetAnchor(TOPLEFT, parent, TOPLEFT, shiftX + skillShiftX + 130, shiftY + skillShiftY)
@@ -106,7 +101,7 @@ end
 
 -- TODO
 function MyBuild.ChampionView:UpdateCharacterInfo( char)
-  self.totalPoints:SetText(char.totalChampionPoints)
+  self.title:SetText(MyBuild.LANG.UI_ChampionTitle..string.format(" (%s)", char.totalChampionPoints))
   for d = 1, 9 do
     self.disciplines[d].title:SetText(char.championPoints[d].name)
     MyBuild.ChampionView:SetTitleColor(char, d)
