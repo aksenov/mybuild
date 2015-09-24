@@ -28,7 +28,7 @@ MyBuild = {}
 MyBuild.name = "MyBuild"
 
 -- default language
-MyBuild.LANG = EN
+MyBuild.LANG = MyBuild.EN
 
 function MyBuild:Initialize()
   --self.savedVariables = ZO_SavedVars:New("MyBuildSavedVariables", 1, nil, {})
