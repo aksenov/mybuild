@@ -25,34 +25,33 @@
 
 MyBuild.AttributeView = {}
 
-
 -- Create main block
 function MyBuild.AttributeView:Create(parent)
-    self.box = UI2.Box( parent, 760, 200)
-    UI2.Offset(self.box, 0, 40)
+    self.box = MyBuild.UI2.Box( parent, 760, 200)
+    MyBuild.UI2.Offset(self.box, 0, 40)
 
     MyBuild.AttributeView:AttributeBox(self.box)
     MyBuild.AttributeView:DerivativeBox(self.box)
 end
 
 function MyBuild.AttributeView:AttributeBox(parent)
-    local title = UI2.Label(MyBuild.LANG.UI_AttributesTitle, "ZoFontWinH2", parent)
-    UI2.Offset(title, 10, 0)
+    local title = MyBuild.UI2.Label(MyBuild.LANG.UI_AttributesTitle, "ZoFontWinH2", parent)
+    MyBuild.UI2.Offset(title, 10, 0)
 
-    local box = UI2.Box(parent, 270, 20)
-    UI2.Offset(box, 10, 30)
+    local box = MyBuild.UI2.Box(parent, 270, 20)
+    MyBuild.UI2.Offset(box, 10, 30)
 
-    local label = UI2.Label(MyBuild.LANG.UI_Stat_Header_Attribute, "ZoFontGameSmall", box)
-    UI2.Offset(label, 10, 0)
+    local label = MyBuild.UI2.Label(MyBuild.LANG.UI_Stat_Header_Attribute, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(label, 10, 0)
 
-    local points = UI2.Label(MyBuild.LANG.UI_Stat_Header_Points, "ZoFontGameSmall", box)
-    UI2.Offset(points, 90, 0)
+    local points = MyBuild.UI2.Label(MyBuild.LANG.UI_Stat_Header_Points, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(points, 90, 0)
 
-    local max = UI2.Label(MyBuild.LANG.UI_Stat_Header_Maximum, "ZoFontGameSmall", box)
-    UI2.Offset(max, 150, 0)
+    local max = MyBuild.UI2.Label(MyBuild.LANG.UI_Stat_Header_Maximum, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(max, 150, 0)
 
-    local regen = UI2.Label(MyBuild.LANG.UI_Stat_Header_Recovery, "ZoFontGameSmall", box)
-    UI2.Offset(regen, 220, 0)
+    local regen = MyBuild.UI2.Label(MyBuild.LANG.UI_Stat_Header_Recovery, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(regen, 220, 0)
 
     self.magicka = MyBuild.AttributeView.AttributeLine(MyBuild.LANG.UI_Stat_MagickaLabel, parent, 10, 50)
     self.health = MyBuild.AttributeView.AttributeLine(MyBuild.LANG.UI_Stat_HealthLabel, parent, 10, 70)
@@ -62,20 +61,20 @@ end
 function MyBuild.AttributeView.AttributeLine(label, parent, shiftX, shiftY)
     local line = {}
 
-    line.box = UI2.Box(parent, 270, 20)
-    UI2.Offset(line.box, shiftX, shiftY)
+    line.box = MyBuild.UI2.Box(parent, 270, 20)
+    MyBuild.UI2.Offset(line.box, shiftX, shiftY)
 
-    line.label = UI2.Label(label, "ZoFontWinH4", line.box)
-    UI2.Offset(line.label, 0, 0)
+    line.label = MyBuild.UI2.Label(label, "ZoFontWinH4", line.box)
+    MyBuild.UI2.Offset(line.label, 0, 0)
 
-    line.points = UI2.Label("12", "ZoFontWinT1", line.box)
-    UI2.Offset(line.points, 100, 0)
+    line.points = MyBuild.UI2.Label("12", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.points, 100, 0)
 
-    line.max = UI2.Label("12345", "ZoFontWinT1", line.box)
-    UI2.Offset(line.max, 160, 0)
+    line.max = MyBuild.UI2.Label("12345", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.max, 160, 0)
 
-    line.regen = UI2.Label("1234", "ZoFontWinT1", line.box)
-    UI2.Offset(line.regen, 230, 0)
+    line.regen = MyBuild.UI2.Label("1234", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.regen, 230, 0)
 
     return line
 end
@@ -83,60 +82,60 @@ end
 
 function MyBuild.AttributeView:DerivativeBox(parent)
 
-    local box = UI2.Box(parent, 270, 20)
-    UI2.Offset(box, 330, 52)
+    local box = MyBuild.UI2.Box(parent, 270, 20)
+    MyBuild.UI2.Offset(box, 330, 52)
 
-    local label = UI2.Label(MyBuild.LANG.UI_Header_DamageType, "ZoFontGameSmall", box)
-    UI2.Offset(label, 5, 0)
+    local label = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_DamageType, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(label, 5, 0)
 
-    local power = UI2.Label(MyBuild.LANG.UI_Header_Damage, "ZoFontGameSmall", box)
-    UI2.Offset(power, 100, 0)
+    local power = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_Damage, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(power, 100, 0)
 
-    local critical = UI2.Label(MyBuild.LANG.UI_Header_Crit, "ZoFontGameSmall", box)
-    UI2.Offset(critical, 170, 0)
+    local critical = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_Crit, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(critical, 170, 0)
 
-    local criticalPercent = UI2.Label(MyBuild.LANG.UI_Header_CritPercent, "ZoFontGameSmall", box)
-    UI2.Offset(criticalPercent, 220, 0)
+    local criticalPercent = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_CritPercent, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(criticalPercent, 220, 0)
 
-    local penetration = UI2.Label(MyBuild.LANG.UI_Header_Penetration, "ZoFontGameSmall", box)
-    UI2.Offset(penetration, 270, 0)
+    local penetration = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_Penetration, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(penetration, 270, 0)
 
-    local resist = UI2.Label(MyBuild.LANG.UI_Header_Resistance, "ZoFontGameSmall", box)
-    UI2.Offset(resist, 345, 0)
+    local resist = MyBuild.UI2.Label(MyBuild.LANG.UI_Header_Resistance, "ZoFontGameSmall", box)
+    MyBuild.UI2.Offset(resist, 345, 0)
 
     self.weapon = MyBuild.AttributeView:DerivativeLine(MyBuild.LANG.UI_Stat_Label_Weapon, parent, 330, 70)
     self.spell = MyBuild.AttributeView:DerivativeLine(MyBuild.LANG.UI_Stat_Label_Spell, parent, 330, 90)
 
-    local mundus = UI2.Label(MyBuild.LANG.UI_Mundus_Label, "ZoFontWinH4", parent)
-    UI2.Offset(mundus, 330, 27)
+    local mundus = MyBuild.UI2.Label(MyBuild.LANG.UI_Mundus_Label, "ZoFontWinH4", parent)
+    MyBuild.UI2.Offset(mundus, 330, 27)
 
-    self.mundus = UI2.Label("", "ZoFontWinT1", parent)
-    UI2.Offset(self.mundus, 450, 27)
+    self.mundus = MyBuild.UI2.Label("", "ZoFontWinT1", parent)
+    MyBuild.UI2.Offset(self.mundus, 450, 27)
 end
 
 function MyBuild.AttributeView:DerivativeLine(label, parent, shiftX, shiftY)
     local line = {}
-    line.box = UI2.Box(parent, 270, 20)
-    UI2.Offset(line.box, shiftX, shiftY)
+    line.box = MyBuild.UI2.Box(parent, 270, 20)
+    MyBuild.UI2.Offset(line.box, shiftX, shiftY)
 
-    line.label = UI2.Label(label, "ZoFontWinH4", line.box)
-    UI2.Offset(line.label, 0, 0)
+    line.label = MyBuild.UI2.Label(label, "ZoFontWinH4", line.box)
+    MyBuild.UI2.Offset(line.label, 0, 0)
 
-    line.power = UI2.Label("1234", "ZoFontWinT1", line.box)
+    line.power = MyBuild.UI2.Label("1234", "ZoFontWinT1", line.box)
 
-    UI2.Offset(line.power, 100, 0)
+    MyBuild.UI2.Offset(line.power, 100, 0)
 
-    line.critical = UI2.Label("12345", "ZoFontWinT1", line.box)
-    UI2.Offset(line.critical, 160, 0)
+    line.critical = MyBuild.UI2.Label("12345", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.critical, 160, 0)
 
-    line.criticalPercent = UI2.Label("12%", "ZoFontWinT1", line.box)
-    UI2.Offset(line.criticalPercent, 220, 0)
+    line.criticalPercent = MyBuild.UI2.Label("12%", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.criticalPercent, 220, 0)
 
-    line.penetration = UI2.Label("12345", "ZoFontWinT1", line.box)
-    UI2.Offset(line.penetration, 290, 0)
+    line.penetration = MyBuild.UI2.Label("12345", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.penetration, 290, 0)
 
-    line.resist = UI2.Label("12345", "ZoFontWinT1", line.box)
-    UI2.Offset(line.resist, 350, 0)
+    line.resist = MyBuild.UI2.Label("12345", "ZoFontWinT1", line.box)
+    MyBuild.UI2.Offset(line.resist, 350, 0)
 
     return line
 end
@@ -162,7 +161,6 @@ function MyBuild.AttributeView:UpdateCharacterInfo(char)
     self.magicka.max:SetColor(0.255, 0.412, 0.882, 1)
     self.magicka.regen:SetText(char.magickaRegenCombat)
     self.magicka.regen:SetColor(0.255, 0.412, 0.882, 1)
-
 
     self.weapon.power:SetText(char.power)
     self.weapon.power:SetColor(0.133, 0.545, 0.133, 1)

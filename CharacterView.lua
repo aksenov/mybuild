@@ -28,14 +28,14 @@ local WM = GetWindowManager()
 
 WM:CreateControl()
 function MyBuild.CharacterView:Create(parent)
-    self.box = UI2.Box(parent, 400, 27)
+    self.box = MyBuild.UI2.Box(parent, 400, 27)
     WM:CreateControlFromVirtual("NameBackdrop", self.box, "ZO_DefaultBackdrop")
     self.box:SetAnchor(TOP, parent, TOP, 0, -10)
 
-    self.name = UI2.Label("Character's name it may be long", "ZoFontWinH1",  self.box)
+    self.name = MyBuild.UI2.Label("Character's name it may be long", "ZoFontWinH1",  self.box)
     self.name:SetAnchor(TOP, self.box, TOP, 0, -5)
 
-    self.info = UI2.Label("- - - - - -", "ZoFontWinH4", self.box)
+    self.info = MyBuild.UI2.Label("- - - - - -", "ZoFontWinH4", self.box)
     self.info:SetAnchor(TOP, self.box, BOTTOM, 0, 7)
 end
 

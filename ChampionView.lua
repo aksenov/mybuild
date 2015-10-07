@@ -29,11 +29,10 @@ MyBuild.ChampionView = {}
 -- Create main block
 function MyBuild.ChampionView:Create(parent)
   MyBuild.ChampionView:SetDefaults()
-  self.box = UI2.Box( parent, 400, 400)
-  UI2.Offset(self.box, 430, 170)
-  --TODO MyBuild.LANG.UI_ChampionTitle
-  self.title = UI2.Label(MyBuild.LANG.UI_ChampionTitle, "ZoFontWinH2", self.box)
-  UI2.Offset(self.title, 10, 0)
+  self.box = MyBuild.UI2.Box( parent, 400, 400)
+  MyBuild.UI2.Offset(self.box, 430, 170)
+    self.title = MyBuild.UI2.Label(MyBuild.LANG.UI_ChampionTitle, "ZoFontWinH2", self.box)
+  MyBuild.UI2.Offset(self.title, 10, 0)
   self.disciplines = {}
 
   MyBuild.ChampionView:DisciplineBlock(2, self.box, 0, 30)
@@ -57,7 +56,7 @@ end
 -- Create discipline block with skill blocks inside
 function MyBuild.ChampionView:DisciplineBlock(disc, parent, shiftX, shiftY)
   self.disciplines[disc] = {}
-  self.disciplines[disc].title = UI2.Label("Discipline title", "ZoFontWinH4", parent)
+  self.disciplines[disc].title = MyBuild.UI2.Label("Discipline title", "ZoFontWinH4", parent)
   self.disciplines[disc].title:SetDimensions(400, 20)
   self.disciplines[disc].title:SetAnchor(TOPLEFT, parent, TOPLEFT, shiftX, shiftY)
 
@@ -73,15 +72,16 @@ function MyBuild.ChampionView:SkillBlock(disc, skill, parent , shiftX, shiftY, s
   self.disciplines[disc].skills[skill] = {}
   local s = self.disciplines[disc].skills[skill]
 
-  s.name = UI2.Label("Skill title", "ZoFontGameSmall", parent)
+  s.name = MyBuild.UI2.Label("Skill title", "ZoFontGameSmall", parent)
   s.name:SetDimensions(130, 20)
   s.name:SetAnchor(TOPLEFT, parent, TOPLEFT, shiftX + skillShiftX, shiftY + skillShiftY)
 
-  s.points = UI2.Label("---", "ZoFontWinH5", parent)
+  s.points = MyBuild.UI2.Label("---", "ZoFontWinH5", parent)
   s.points:SetDimensions(130, 20)
   s.points:SetAnchor(TOPLEFT, parent, TOPLEFT, shiftX + skillShiftX + 130, shiftY + skillShiftY)
 end
 
+-- Set color by attribute classification
 function MyBuild.ChampionView:SetTitleColor(char, disc)
     if char.championPoints[disc].attribute == 1 then
         self.disciplines[disc].title:SetColor(1.000, 0.000, 0.000, 1) -- red
@@ -92,6 +92,7 @@ function MyBuild.ChampionView:SetTitleColor(char, disc)
     end
 end
 
+-- Set color by skill classification
 function MyBuild.ChampionView:SetSkillColor(char, disc, skill)
     if char.championPoints[disc].skills[skill].points == 0 then
         self.disciplines[disc].skills[skill].name:SetColor(0.502, 0.502, 0.502, 0.3) --gray opacity
@@ -99,7 +100,7 @@ function MyBuild.ChampionView:SetSkillColor(char, disc, skill)
     end
 end
 
--- TODO
+-- Update view info
 function MyBuild.ChampionView:UpdateCharacterInfo( char)
   self.title:SetText(MyBuild.LANG.UI_ChampionTitle..string.format(" (%s)", char.totalChampionPoints))
   for d = 1, 9 do
@@ -112,19 +113,3 @@ function MyBuild.ChampionView:UpdateCharacterInfo( char)
     end
   end
 end
-
-
-
-
---[[
-if Char.championPoints[disc].attribute == 2 then
-  skillName:SetColor(0.255, 0.412, 0.882, 1)
-  skillPoint:SetColor(0.255, 0.412, 0.882, 1)
-elseif Char.championPoints[disc].attribute == 1 then
-  skillName:SetColor(1.000, 0.000, 0.000, 1)
-  skillPoint:SetColor(1.000, 0.000, 0.000, 1)
-elseif Char.championPoints[disc].attribute == 3 then
-  skillName:SetColor(0.133, 0.545, 0.133, 1)
-  skillPoint:SetColor(0.133, 0.545, 0.133, 1)
-end
-]]

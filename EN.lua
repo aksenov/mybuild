@@ -128,17 +128,6 @@ MyBuild.EN.ESO.Trait[ITEM_TRAIT_TYPE_NONE] = ""
 
 
 MyBuild.ESO = {}
---[[Color = class(function(color, r, g, b, a)
-              color.r = r
-              color.g = g
-              color.b = b
-              color.a = a
-           end)
-
-function Color:rgba()
-   return self.r, self.g, self.b, self.a
-end]]
-
 
 function ESO.Color(r, g, b, a)
   local color = {}
@@ -173,5 +162,3 @@ MyBuild.ESO.WeaponTypeColor[ARMORTYPE_HEAVY] = MyBuild.ESO.Color(0.698, 0.133, 0
 MyBuild.ESO.WeaponTypeColor[ARMORTYPE_LIGHT] = MyBuild.ESO.Color(0.255, 0.412, 0.882, 1)
 MyBuild.ESO.WeaponTypeColor[ARMORTYPE_MEDIUM] = MyBuild.ESO.Color(0.000, 0.502, 0.000, 1)
 MyBuild.ESO.WeaponTypeColor[ARMORTYPE_NONE] = MyBuild.ESO.Color(1, 1, 1, 1)
---Color = {}
---Color.gold = (0.5, 0.7, 0.33)

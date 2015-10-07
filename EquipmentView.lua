@@ -29,10 +29,10 @@ local WM = GetWindowManager()
 WM:CreateControl()
 
 function MyBuild.EquipmentView:Create(parent)
-    self.box = UI2.Box(parent, 400, 630)
-    UI2.Offset(self.box, 0, 170)
-    self.title = UI2.Label(MyBuild.LANG.UI_Equipment_Title, "ZoFontWinH2",  self.box)
-    UI2.Offset(self.title, 10, 0)
+    self.box = MyBuild.UI2.Box(parent, 400, 630)
+    MyBuild.UI2.Offset(self.box, 0, 170)
+    self.title = MyBuild.UI2.Label(MyBuild.LANG.UI_Equipment_Title, "ZoFontWinH2",  self.box)
+    MyBuild.UI2.Offset(self.title, 10, 0)
 
     self.head = self.ItemBlock(MyBuild.LANG.UI_Equipment_HeadLabel,  self.box, 10, 30)
     self.shoulders = self.ItemBlock(MyBuild.LANG.UI_Equipment_ShouldersLabel, self.box, 10, 70)
@@ -55,26 +55,26 @@ end
 function MyBuild.EquipmentView.ItemBlock(title, parent, shiftX, shiftY)
     local item = {}
 
-    item.box = UI2.Box(parent, 400, 100)
-    UI2.Offset(item.box, shiftX, shiftY)
+    item.box = MyBuild.UI2.Box(parent, 400, 100)
+    MyBuild.UI2.Offset(item.box, shiftX, shiftY)
 
-    item.label = UI2.Label(title, "ZoFontWinH4",  item.box)
-    UI2.Offset(item.label, 0, 0)
+    item.label = MyBuild.UI2.Label(title, "ZoFontWinH4",  item.box)
+    MyBuild.UI2.Offset(item.label, 0, 0)
 
-    item.type = UI2.Label("item type", "ZoFontGameSmall", item.box)
-    UI2.Offset(item.type, 5, 20)
+    item.type = MyBuild.UI2.Label("item type", "ZoFontGameSmall", item.box)
+    MyBuild.UI2.Offset(item.type, 5, 20)
 
-    item.level = UI2.Label("---", "ZoFontWinT2",item.box)
-    UI2.Offset(item.level, 110, 0)
+    item.level = MyBuild.UI2.Label("---", "ZoFontWinT2",item.box)
+    MyBuild.UI2.Offset(item.level, 110, 0)
 
-    item.name = UI2.Label("Item Very Long, Long, Long, Long Name", "ZoFontWinT1", item.box, 280, 20)
-    UI2.Offset(item.name, 140, 0)
+    item.name = MyBuild.UI2.Label("Item Very Long, Long, Long, Long Name", "ZoFontWinT1", item.box, 280, 20)
+    MyBuild.UI2.Offset(item.name, 140, 0)
 
-    item.trait = UI2.Label("Item trait", "ZoFontGameSmall",  item.box)
-    UI2.Offset(item.trait, 140, 20)
+    item.trait = MyBuild.UI2.Label("Item trait", "ZoFontGameSmall",  item.box)
+    MyBuild.UI2.Offset(item.trait, 140, 20)
 
-    item.enchantment = UI2.Label("Item enchantment", "ZoFontGameSmall",  item.box, 190, 20)
-    UI2.Offset(item.enchantment, 220, 20)
+    item.enchantment = MyBuild.UI2.Label("Item enchantment", "ZoFontGameSmall",  item.box, 190, 20)
+    MyBuild.UI2.Offset(item.enchantment, 220, 20)
     return item
 end
 
