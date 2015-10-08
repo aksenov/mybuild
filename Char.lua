@@ -52,7 +52,6 @@ end
 -- Get champion points information
 function MyBuild.Char:ChampionPoints()
   self.totalChampionPoints = GetPlayerChampionPointsEarned()
-  -- d(self.totalChampionPoints)
   self.championPoints = {}
   for disc=1, GetNumChampionDisciplines() do
       self.championPoints[disc] = {}
@@ -82,13 +81,11 @@ function MyBuild.Char:Effects()
         self.mundus = self.mundus..string.sub(self.effects[i], 6)
     end
 
-
     --check for lycanthropy
     if string.match(self.effects[i],  "Lycanthropy") then
       self.werewolf = true
     end
 
-    --d(string.sub(self.effects[i], 8, 17))
     --check for vampirism
     if string.match(self.effects[i], "Vampirism") then
       self.vampire = true

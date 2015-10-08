@@ -121,15 +121,14 @@ function MyBuild.EquipmentView:UpdateCharacterInfo(char)
     self.UpdateItemInfo(char.backupOff, self.off2)
 
     self.title:SetText(MyBuild.LANG.UI_Equipment_Title.."   "..self.EquipmentSummary(char))
-    --d(self.EquipmentSummary(char))
 end
 
 function MyBuild.EquipmentView.EquipmentSummary(char)
   local h = 0
   local m = 0
   local l = 0
-  items = {char.head, char.shoulders, char.chest, char.hand, char.waist, char.legs, char.feet}
-  for ii, iitem in ipairs(items) do
+  local items = {char.head, char.shoulders, char.chest, char.hand, char.waist, char.legs, char.feet}
+  for _, iitem in ipairs(items) do
     if iitem.armortype == ARMORTYPE_HEAVY then
       h = h + 1
     end

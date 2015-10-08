@@ -1,5 +1,5 @@
 ## Title: My Build
-## Description: Shows full chracter build information. Type /mybuild to show or hide information window. Also you can bind hotkeys to toggle window.
+## Description: Shows full character build information. Type /mybuild to show or hide information window. Also you can bind hotkeys to toggle window.
 ## Version: 1.0.0
 ## APIVersion: 100012
 ## Author: Eugene Aksenov, @aksenov (EU)

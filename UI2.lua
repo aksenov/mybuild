@@ -42,15 +42,10 @@ end
 function MyBuild.UI2.Box(parent, width, height)
     local box = WM:CreateControl("", parent, CT_CONTROL)
     box:SetDimensions(width, height)
-    d("BOX")
-    d(box)
     return box
 end
 
 function MyBuild.UI2.Offset(elem, x, y)
-    d("ELEM")
-    d(elem)
-    d("LEM")
     local parent = elem:GetParent()
     elem:SetAnchor(TOPLEFT, parent, TOPLEFT, x, y)
     return elem
