@@ -30,6 +30,15 @@ MyBuild.name = "MyBuild"
 -- default language
 MyBuild.LANG = MyBuild.EN
 
+function MyBuild:Chooselanguage()
+    local lang = GetCVar("Language.2")
+    if lang == "en" then
+        self.LANG = MyBuild.EN
+    elseif lang == "de" then
+        self.LANG = MyBuild.DE
+    end
+end
+
 function MyBuild:Initialize()
   --self.savedVariables = ZO_SavedVars:New("MyBuildSavedVariables", 1, nil, {})
   --self:RestorePosition()
@@ -50,6 +59,7 @@ function MyBuild:Initialize()
 function MyBuild.OnAddOnLoaded(_, addonName)
     if addonName == MyBuild.name then
         MyBuild:Initialize()
+        MyBuild:Chooselanguage()
         MyBuild.ui = MyBuild.UI.CreateUI()
         MyBuild.ui.mainWindow:SetHidden(true)
     end
