@@ -25,7 +25,7 @@
 
 MyBuild.ESO = {}
 
-function ESO.Color(r, g, b, a)
+function MyBuild.ESO.Color(r, g, b, a)
     local color = {}
     color.r = r
     color.b = b

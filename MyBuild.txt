@@ -5,10 +5,10 @@
 ## Author: Eugene Aksenov, @aksenov (EU)
 ## SavedVariables: MyBuildSavedVariables
 
+MyBuild.lua
 ESO.lua
 EN.lua
 DE.lua
-MyBuild.lua
 Char.lua
 UI2.lua
 CharacterView.lua

@@ -30,11 +30,11 @@ MyBuild.Char = {}
 -- Get full character info
 function MyBuild.Char:UpdateInfo()
   local player = "player"
-  self.name = GetUnitName(player)
-  self.race = GetUnitRace(player)
+  self.name = zo_strformat("<<1>>", GetUnitName(player))
+  self.race = zo_strformat("<<1>>", GetUnitRace(player))
   self.alliance = GetUnitAlliance(player)
   self.allianceText = GetAllianceName(self.alliance)
-  self.class = GetUnitClass(player)
+  self.class = zo_strformat("<<1>>", GetUnitClass(player))
   self.classId = GetUnitClassId(player)
   self.level = GetUnitLevel(player)
   self.veteranRank = GetUnitVeteranRank(player)
@@ -55,12 +55,12 @@ function MyBuild.Char:ChampionPoints()
   self.championPoints = {}
   for disc=1, GetNumChampionDisciplines() do
       self.championPoints[disc] = {}
-      self.championPoints[disc].name = GetChampionDisciplineName(disc)
+      self.championPoints[disc].name = zo_strformat("<<1>>", GetChampionDisciplineName(disc))
       self.championPoints[disc].attribute = GetChampionDisciplineAttribute(disc)
       self.championPoints[disc].skills = {}
     for skill=1,GetNumChampionDisciplineSkills(disc) do
       self.championPoints[disc].skills[skill] = {}
-      self.championPoints[disc].skills[skill].name = GetChampionSkillName(disc, skill)
+      self.championPoints[disc].skills[skill].name = zo_strformat("<<1>>", GetChampionSkillName(disc, skill))
       self.championPoints[disc].skills[skill].points = GetNumPointsSpentOnChampionSkill(disc, skill)
     end
   end
@@ -153,7 +153,7 @@ function MyBuild.Char:Equipment()
   local item = function (type)
     local a = {}
     a.itemlink = GetItemLink(BAG_WORN, type, LINK_STYLE_DEFAULT)
-    a.name = GetItemName(BAG_WORN, type)
+    a.name = zo_strformat("<<1>>", GetItemName(BAG_WORN, type))
     a.quality = GetItemLinkQuality(a.itemlink)
     a.level = GetItemRequiredLevel(BAG_WORN, type)
     a.veteranRank = GetItemRequiredVeteranRank(BAG_WORN, type)

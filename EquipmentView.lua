@@ -80,14 +80,14 @@ end
 
 function MyBuild.EquipmentView.UpdateItemInfo(item, itemview)
     itemview.name:SetText(item.name:gsub("%^p", ""):gsub("%^n", ""))
-    itemview.name:SetColor(ESO.RGBA(ESO.QualityColor[item.quality]))
+    itemview.name:SetColor(MyBuild.ESO.RGBA(MyBuild.ESO.QualityColor[item.quality]))
 
     itemview.level:SetText(MyBuild.Char.ItemLevelText(item))
-    itemview.level:SetColor(ESO.RGBA(ESO.QualityColor[item.quality]))
+    itemview.level:SetColor(MyBuild.ESO.RGBA(MyBuild.ESO.QualityColor[item.quality]))
 
     if item.armortype ~= 0 then
         itemview.type:SetText(MyBuild.LANG.ESO.Armor[item.armortype])
-        itemview.type:SetColor(ESO.RGBA(ESO.ArmorTypeColor[item.armortype]))
+        itemview.type:SetColor(MyBuild.ESO.RGBA(MyBuild.ESO.ArmorTypeColor[item.armortype]))
     elseif item.weapontype ~= 0 then
         itemview.type:SetText(MyBuild.LANG.ESO.Weapon[item.weapontype])
         itemview.type:SetColor(0.502, 0.502, 0.502, 1)

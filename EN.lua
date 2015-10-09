@@ -23,6 +23,7 @@
 -- English translation
 -------------------------------------------------------------------------------
 
+
 MyBuild.EN = {}
 MyBuild.EN.UI = {}
 MyBuild.EN.UI_MainTitle = "ESO My Build"
@@ -87,7 +88,7 @@ MyBuild.EN.UI_Equipment_WeaponOff1 = "Off Hand 1: "
 MyBuild.EN.UI_Equipment_WeaponMain2 = "Main Hand 2: "
 MyBuild.EN.UI_Equipment_WeaponOff2 = "Off Hand 2: "
 
-MyBuild.EN.Command_ShowHide = "My Build: show/hide"
+--MyBuild.EN.Command_ShowHide = "My Build: show/hide"
 
 MyBuild.EN.ESO = {}
 MyBuild.EN.ESO.Quality = {}

@@ -53,9 +53,9 @@ function MyBuild.CharacterView:UpdateCharacterInfo(char)
 
     local supernatural = ""
     if char.werewolf then
-      supernatural = EN.Werewolf
+      supernatural = MyBuild.LANG.Werewolf
     elseif char.vampire then
-      supernatural = EN.Vampire
+      supernatural = MyBuild.LANG.Vampire
     end
 
     self.info:SetText(string.format("%s  %s  %s  %s", level, char.class, char.race, supernatural))

@@ -28,7 +28,7 @@ MyBuild = {}
 MyBuild.name = "MyBuild"
 
 -- default language
-MyBuild.LANG = MyBuild.EN
+--MyBuild.LANG = MyBuild.EN
 
 function MyBuild:Chooselanguage()
     local lang = GetCVar("Language.2")
@@ -97,4 +97,5 @@ EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_ADD_ON_LOADED, MyBuild.OnAddO
 SLASH_COMMANDS["/mybuild"] = MyBuild.ToggleHide
 
 -- register menu binding name
-ZO_CreateStringId("SI_BINDING_NAME_MYBUILD_SHOWHIDE", MyBuild.LANG.Command_ShowHide)
+ZO_CreateStringId("SI_BINDING_NAME_MYBUILD_SHOWHIDE", "My Build: show/hide")
+--MyBuild.LANG.Command_ShowHide)
