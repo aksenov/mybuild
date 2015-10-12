@@ -79,7 +79,7 @@ function MyBuild.EquipmentView.ItemBlock(title, parent, shiftX, shiftY)
 end
 
 function MyBuild.EquipmentView.UpdateItemInfo(item, itemview)
-    itemview.name:SetText(item.name:gsub("%^p", ""):gsub("%^n", ""))
+    itemview.name:SetText(item.name)
     itemview.name:SetColor(MyBuild.ESO.RGBA(MyBuild.ESO.QualityColor[item.quality]))
 
     itemview.level:SetText(MyBuild.Char.ItemLevelText(item))

@@ -27,9 +27,6 @@ MyBuild = {}
 
 MyBuild.name = "MyBuild"
 
--- default language
---MyBuild.LANG = MyBuild.EN
-
 function MyBuild:Chooselanguage()
     local lang = GetCVar("Language.2")
     if lang == "en" then
@@ -40,21 +37,36 @@ function MyBuild:Chooselanguage()
 end
 
 function MyBuild:Initialize()
-  --self.savedVariables = ZO_SavedVars:New("MyBuildSavedVariables", 1, nil, {})
-  --self:RestorePosition()
-
   --register all necessary events
   EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_PLAYER_ACTIVATED, MyBuild.OnPlayerActivated)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_STATS_UPDATED, MyBuild.OnUpdate)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_LEVEL_UPDATE, MyBuild.OnUpdate)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_TITLE_UPDATE, MyBuild.OnUpdate)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_MOUNTS_FULL_UPDATE, MyBuild.OnRefresh)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_MOUNT_UPDATE, MyBuild.OnRefresh)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_EFFECT_CHANGED, MyBuild.OnRefresh)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_EFFECTS_FULL_UPDATE, MyBuild.OnRefresh)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_ATTRIBUTE_UPGRADE_UPDATED, MyBuild.OnRefresh)
-  EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_PLAYER_TITLES_UPDATE, MyBuild.OnRefresh)
-  end
+  self.updateEnabled = false
+end
+
+function MyBuild:ToggleUpdate()
+    if self.updateEnabled then
+        self.updateEnabled = true
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_STATS_UPDATED, MyBuild.OnUpdate)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_LEVEL_UPDATE, MyBuild.OnUpdate)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_TITLE_UPDATE, MyBuild.OnUpdate)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_MOUNTS_FULL_UPDATE, MyBuild.OnRefresh)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_MOUNT_UPDATE, MyBuild.OnRefresh)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_EFFECT_CHANGED, MyBuild.OnRefresh)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_EFFECTS_FULL_UPDATE, MyBuild.OnRefresh)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_ATTRIBUTE_UPGRADE_UPDATED, MyBuild.OnRefresh)
+        EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_PLAYER_TITLES_UPDATE, MyBuild.OnRefresh)
+    else
+        self.updateEnabled = false
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_STATS_UPDATED)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_LEVEL_UPDATE)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_TITLE_UPDATE)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_MOUNTS_FULL_UPDATE)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_MOUNT_UPDATE)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_EFFECT_CHANGED)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_EFFECTS_FULL_UPDATE)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_ATTRIBUTE_UPGRADE_UPDATED)
+        EVENT_MANAGER:UnregisterForEvent(MyBuild.name, EVENT_PLAYER_TITLES_UPDATE)
+    end
+end
 
 function MyBuild.OnAddOnLoaded(_, addonName)
     if addonName == MyBuild.name then
@@ -87,6 +99,7 @@ end
 
 -- toggle visibility of main window
 function MyBuild.ToggleHide()
+    MyBuild:ToggleUpdate()
     MyBuild.ui.mainWindow:ToggleHidden()
 end
 
@@ -98,4 +111,3 @@ SLASH_COMMANDS["/mybuild"] = MyBuild.ToggleHide
 
 -- register menu binding name
 ZO_CreateStringId("SI_BINDING_NAME_MYBUILD_SHOWHIDE", "My Build: show/hide")
---MyBuild.LANG.Command_ShowHide)
