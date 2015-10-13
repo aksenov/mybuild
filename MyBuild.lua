@@ -23,9 +23,15 @@
 -- Create and register addon
 -------------------------------------------------------------------------------
 
+
+
 MyBuild = {}
 
 MyBuild.name = "MyBuild"
+
+MyBuild.defaultSettings = {
+    displayName = true
+}
 
 function MyBuild:Chooselanguage()
     local lang = GetCVar("Language.2")
@@ -37,6 +43,11 @@ function MyBuild:Chooselanguage()
 end
 
 function MyBuild:Initialize()
+  self.db = ZO_SavedVars:New("MyBuildDB", 1, nil, MyBuild.defaultSettings)
+
+  -- Initialize Settings
+  MyBuild.CreateSettingsWindow()
+
   --register all necessary events
   EVENT_MANAGER:RegisterForEvent(MyBuild.name, EVENT_PLAYER_ACTIVATED, MyBuild.OnPlayerActivated)
   self.updateEnabled = false

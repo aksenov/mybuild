@@ -4,8 +4,13 @@
 ## APIVersion: 100012
 ## Author: Eugene Aksenov, @aksenov (EU)
 ## SavedVariables: MyBuildSavedVariables
+## OptionalDependsOn: LibAddonMenu-2.0
+
+libs/LibStub/LibStub.lua
+libs/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
 
 MyBuild.lua
+Settings.lua
 ESO.lua
 EN.lua
 DE.lua

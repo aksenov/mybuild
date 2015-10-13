@@ -39,8 +39,14 @@ function MyBuild.CharacterView:Create(parent)
     self.info:SetAnchor(TOP, self.box, BOTTOM, 0, 7)
 end
 
+
 function MyBuild.CharacterView:UpdateCharacterInfo(char)
-    self.name:SetText(char.name)
+    if MyBuild.db.displayName then
+        self.name:SetText(char.name)
+    else
+        self.name:SetText(MyBuild.LANG.UI_MainTitle)
+    end
+
     self.name:SetColor(1, 0.98, 0.8,1)
 
     local level = ""
