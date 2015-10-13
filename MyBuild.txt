@@ -3,7 +3,7 @@
 ## Version: 1.2.1
 ## APIVersion: 100012
 ## Author: Eugene Aksenov, @aksenov (EU)
-## SavedVariables: MyBuildSavedVariables
+## SavedVariables: MyBuildDB
 ## OptionalDependsOn: LibAddonMenu-2.0
 
 libs/LibStub/LibStub.lua
